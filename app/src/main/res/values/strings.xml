@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+
+    <string name="tmdb_api_key">c00d657c3349d4bbedd712e8a685bb45</string>
+
+    <string name="poster_description">Movie Poster</string>
+    <string name="backdrop_description">Movie Backdrop</string>
+    <string name="trailer_thumb_description">Trailer Thumbnail</string>
+
+    <string name="string_synopsis">Description:</string>
+    <string name="string_trailers">Trailers:</string>
+    <string name="string_reviews">Reviews:</string>
+
+    <string name="menu_fav">My Favorites</string>
+    <string name="menu_sort">SortBy</string>
+</resources>
