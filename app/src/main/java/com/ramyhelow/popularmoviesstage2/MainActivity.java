@@ -2,6 +2,7 @@ package com.ramyhelow.popularmoviesstage2;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,16 +31,40 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements MoviesAdapter.OnItemClickHandler {
 
+    private final String SHARED_PREFERENCES_NAME = "SHARED_PREFERENCES_NAME";
+
+    private final String SORTBY_CRITERIA = "SORTBY_CRITERIA";
+
+    private final int SORTBY_MOSTPOPULAR = 0;
+    private final int SORTBY_TOPRATED = 1;
+
     private ProgressBar mProgressBar;
     private MoviesAdapter mAdapter;
     private List<Movie> mMovies;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor sharedPreferencesEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME,0);
+        sharedPreferencesEditor = sharedPreferences.edit();
+
         generateMovieList();
-        showPopularMovies();
+
+        determineSortByCriteria();
+    }
+
+    public void determineSortByCriteria(){
+        int savedCriteria = sharedPreferences.getInt(SORTBY_CRITERIA,SORTBY_MOSTPOPULAR);
+
+        if(savedCriteria==0){
+            showPopularMovies();
+        }else{
+            showTopRatedMovies();
+        }
     }
 
     @Override
@@ -158,10 +183,13 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.OnI
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 1) {
-                    showTopRatedMovies();
+                    sharedPreferencesEditor.putInt(SORTBY_CRITERIA,SORTBY_TOPRATED);
+                    sharedPreferencesEditor.apply();
                 } else {
-                    showPopularMovies();
+                    sharedPreferencesEditor.putInt(SORTBY_CRITERIA,SORTBY_MOSTPOPULAR);
+                    sharedPreferencesEditor.apply();
                 }
+                determineSortByCriteria();
             }
         });
         builder.show();
