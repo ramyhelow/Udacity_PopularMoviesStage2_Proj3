@@ -10,6 +10,8 @@ Building an app that utilizes MVVM + Android Architecture Components to create f
 Parsing and displaying data received as JSON from TheMovieDB.org API  
 Can also handle network status and network failures.
  
+## API Key
+Please go to res/values/strings.xml and put your API_KEY in the 'tmdb_api_key' tag   
 
 ## Contact Info
 You can connect with me through:
