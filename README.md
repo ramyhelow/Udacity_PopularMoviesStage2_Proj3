@@ -7,8 +7,8 @@ posters, release dates, ratings, and the plot.
 
 ## Project Objectives
 Building an app that utilizes MVVM + Android Architecture Components to create for network and resource efficiency, in addition to offline functionality  
-Parsing and displaying data received as JSON from TheMovieDB.org API 
-and can also handle network status and network failures.
+Parsing and displaying data received as JSON from TheMovieDB.org API  
+Can also handle network status and network failures.
  
 
 ## Contact Info
