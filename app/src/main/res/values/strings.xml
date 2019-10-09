@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Popular Movies</string>
 
-    <string name="tmdb_api_key">c00d657c3349d4bbedd712e8a685bb45</string>
+    <string name="tmdb_api_key"></string>
 
     <string name="poster_description">Movie Poster</string>
     <string name="backdrop_description">Movie Backdrop</string>
